@@ -1,10 +1,10 @@
 -- 1. Contare quanti iscritti ci sono stati ogni anno
-SELECT YEAR(`students`.`enrolment_date`) AS `year`, COUNT(`students`.`id`) as `students_number`
+SELECT YEAR(`students`.`enrolment_date`) AS `year`, COUNT(`students`.`id`) AS `students_number`
 FROM `students` 
 GROUP BY YEAR(`students`.`enrolment_date`);
 
 -- 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
-SELECT `teachers`.`office_address`, COUNT(`teachers`.`id`) as `number_of_teachers:`
+SELECT `teachers`.`office_address`, COUNT(`teachers`.`id`) AS `number_of_teachers:`
 FROM `teachers`
 GROUP BY `teachers`.`office_address`;
 
@@ -21,7 +21,7 @@ GROUP BY `degrees`.`name`;
 
 -- 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
 
-SELECT `departments`.`name` as `department_name`, COUNT(`degrees`.`id`) as `degrees_number_per_dep`
+SELECT `departments`.`name` AS `department_name`, COUNT(`degrees`.`id`) AS `degrees_number_per_dep`
 FROM `departments`
 INNER JOIN `degrees`
 ON `departments`.`id` = `degrees`.`department_id`
