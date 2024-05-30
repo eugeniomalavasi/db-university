@@ -17,18 +17,16 @@ FROM `students`
 WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURRENT_DATE) > 30  
 ;
 
--- 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
--- laurea (286)
+-- 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
 SELECT * 
 FROM `courses`
 WHERE `year` = 1
 AND `period` = "I semestre";
 
--- 5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del
--- 20/06/2020 (21)
+-- 5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020 (21)
 SELECT * 
 FROM `exams`
-WHERE HOUR(`hour`) > 13  
+WHERE HOUR(`hour`) >= 14  
 AND `date` = "2020-06-20";
 
 -- 6. Selezionare tutti i corsi di laurea magistrale (38)
@@ -46,8 +44,7 @@ SELECT *
 FROM `teachers`
 WHERE `phone` is NULL;
 
--- 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo
--- degree_id, inserire un valore casuale)
+-- 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo degree_id, inserire un valore casuale)
 INSERT INTO `students` (`degree_id`,`name`,`surname`,`date_of_birth`,`fiscal_code`,`enrolment_date`,`registration_number`,`email`)
 VALUES (25, "Eugenio","Malavasi","1991-04-02","MLVGNE91D02F240O","2024-05-29",666666,"eugenio@gmail.com")
 ;
